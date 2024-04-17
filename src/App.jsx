@@ -6,15 +6,15 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { TodoList } from './components/TodoList';
 import { Button } from '@mui/material';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { Counter } from './pages/Counter';
 
 function App() {
+  const navigate = useNavigate();
+  const pathname = window.location.pathname;
   return (
     <div className="App">
-      <Link to="/counter">
-        <Button variant='primary'> go to Counter page</Button>
-      </Link>
+      <Button onClick={e => navigate(pathname === '/' ? '/counter' : '/')} variant='primary'>Change page</Button>
       <header className="App-header">
         <h1>React App</h1>
       </header>

@@ -14,6 +14,7 @@ import { red } from '@mui/material/colors';
 export default function FolderList({
     array = []
 }) {
+    const [newArray, setNewArray] = React.useState(array);
     return (
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
             {array.map((item, index) => (
@@ -24,7 +25,7 @@ export default function FolderList({
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText primary={item} secondary={new Date().toISOString().split('T')[0]} />
-                    <IconButton color='error' onClick={() => array.splice(index, 1)}>
+                    <IconButton color='error' onClick={() => {  newArray.splice(index, 1); setNewArray(newArray);}}>
                         <DeleteIcon />
                     </IconButton>
                 </ListItem>

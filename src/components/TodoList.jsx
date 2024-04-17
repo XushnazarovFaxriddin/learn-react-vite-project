@@ -10,7 +10,7 @@ export const TodoList = () => {
     return (
       <>
         <Input type="text" placeholder="Enter title ..." value = {title} setValue={setTitle} />
-        <Button variant="contained" onClick={() => setArray([...array, title])}>Add</Button>
+        <Button variant="contained" onClick={() => {setArray([title, ...array]); setTitle(''); }}>Add</Button>
         <FolderList array={array} />
       </>
     )
